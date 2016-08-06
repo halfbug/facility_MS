@@ -28,6 +28,14 @@ class CreateFacilityTable extends Migration
             
             $table->timestamps();
         });
+        
+        Schema::create('facility_user',function (Blueprint $table) {
+            $table->integer("user_id")->unsigned()->index();
+            $table->foreign("user_id")->references('id')->on('users')->onDelete('cascade');
+            $table->integer("facility_id")->unsigned()->index();
+            $table->foreign("facility_id")->references('id')->on('facility')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -38,5 +46,6 @@ class CreateFacilityTable extends Migration
     public function down()
     {
         Schema::drop('facility');
+         Schema::drop('facility_user');
     }
 }

@@ -23,4 +23,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    /**
+     * Get the facilities associated with the give user
+     *
+     * @var array
+     */
+    public function facilities(){
+     
+        return $this->belongsToMany('App\Facility');
+    
+    } 
+            
+    
 }
