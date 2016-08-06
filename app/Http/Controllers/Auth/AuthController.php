@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new authentication controller instance.
@@ -74,5 +74,17 @@ class AuthController extends Controller
             'is_approved' => 1,
             'approved_date' => "000:00"
         ]);
+    }
+    
+    
+    public function registerUser()
+    {
+//       return "i m here";
+        $facilities = \App\Facility::all('name','id');
+        return view('auth.register',[
+        'facilities' => $facilities
+    ]);
+        
+      
     }
 }

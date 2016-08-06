@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth();
+//Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
@@ -25,10 +25,14 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::get('/register', 'Auth\AuthController@registerUser');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
 Route::controllers([
    'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('/facility', 'FacilityController@index');
+Route::post('/facility', 'FacilityController@store');
+Route::delete('/facility/{facility}', 'FacilityController@destroy');
