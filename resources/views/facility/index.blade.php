@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
-@section('content')
+@section('panel_1')
 
     <!-- Bootstrap Boilerplate... -->
 
@@ -38,7 +38,7 @@
     <div class="col-sm-10">
         <div class="panel panel-default ">
             <div class="panel-heading">
-                <h1> Facilities </h1>
+                <h2 class="sub-header"> Facilities </h2>
             </div>
 
             <div class="panel-default">
