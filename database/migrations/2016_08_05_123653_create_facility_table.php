@@ -12,7 +12,7 @@ class CreateFacilityTable extends Migration
      */
     public function up()
     {
-        Schema::create('facility', function (Blueprint $table) {
+        Schema::create('facilities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('desc',500);
