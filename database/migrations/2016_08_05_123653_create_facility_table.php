@@ -45,7 +45,7 @@ class CreateFacilityTable extends Migration
      */
     public function down()
     {
-        Schema::drop('facility');
+        Schema::drop('facilites');
          Schema::drop('facility_user');
     }
 }
