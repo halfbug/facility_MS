@@ -33,7 +33,7 @@ class CreateFacilityTable extends Migration
             $table->integer("user_id")->unsigned()->index();
             $table->foreign("user_id")->references('id')->on('users')->onDelete('cascade');
             $table->integer("facility_id")->unsigned()->index();
-            $table->foreign("facility_id")->references('id')->on('facility')->onDelete('cascade');
+            $table->foreign("facility_id")->references('id')->on('facilities')->onDelete('cascade');
             $table->timestamps();
         });
     }
