@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
 @section('panel_1')
-
+<h1 class="page-header">Dashboard</h1>
 
 <div class="row placeholders">
     <div class="col-xs-6 col-sm-3 placeholder">

@@ -52,9 +52,10 @@ public function store(Request $request)
 public function index(Request $request)
 {
     $facilities = Facility::all();
-
+    $parents= Facility::all()->where('parent_id',null);
     return view('facility.index', [
         'facilities' => $facilities,
+        'parents' => $parents,
     ]);
 }
 }
