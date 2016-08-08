@@ -61,7 +61,8 @@
                 </td>
                 <td class="table-text">
                     <div>
-                        @foreach ($newUser->facilities() as $userFacility)
+                        
+                        @foreach ($newUser->facilities()->get() as $userFacility)
                         {{ $userFacility->name }}
                     @endforeach
                     </div>
