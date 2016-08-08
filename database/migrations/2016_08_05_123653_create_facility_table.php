@@ -23,7 +23,7 @@ class CreateFacilityTable extends Migration
             $table->string('phone',20);
             $table->string('web_url');
             $table->string('email',20);
-            $table->integer('parent_id')->index();
+            $table->integer('parent_id');
             $table->tinyInteger('tree_level');
             
             $table->timestamps();
