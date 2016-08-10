@@ -33,6 +33,17 @@ class User extends Authenticatable
      
         return $this->belongsToMany('App\Facility');
     
+    }
+    
+    /**
+     * Get the roles associated with the give user
+     *
+     * @var array
+     */
+    public function roles(){
+     
+        return $this->belongsToMany('App\Role');
+    
     } 
             
     

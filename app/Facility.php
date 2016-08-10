@@ -16,7 +16,7 @@ class Facility extends Model
     /**
      * The facilities that belong to the user.
      */
-    public function user()
+    public function users()
     {
         return $this->belongsToMany('App\User');
     }

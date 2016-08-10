@@ -45,7 +45,7 @@
         <tbody>
             @foreach ($newRegistrations as $newUser)
             <tr>
-                <td><a href="#">Edit</a></td>
+                <td><a href="{{url("user/approval/".$newUser->id)}}">Edit</a></td>
 
                 <td class="table-text">
                     <div>{{ $newUser->created_at }}</div>

@@ -36,3 +36,8 @@ Route::controllers([
 Route::get('/facility', 'FacilityController@index');
 Route::post('/facility', 'FacilityController@store');
 Route::delete('/facility/{facility}', 'FacilityController@destroy');
+
+
+Route::get('/user/approval/{newUser}', 'UserController@approval');
+Route::post('/user/approved', 'UserController@approved');
+Route::get('/user/decline/{newUser}', 'UserController@decline');
