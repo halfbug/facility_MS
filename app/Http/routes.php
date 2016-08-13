@@ -41,3 +41,9 @@ Route::delete('/facility/{facility}', 'FacilityController@destroy');
 Route::get('/user/approval/{newUser}', 'UserController@approval');
 Route::post('/user/approved', 'UserController@approved');
 Route::get('/user/decline/{newUser}', 'UserController@decline');
+
+Route::get('/application', 'ApplicationController@index');
+Route::get('/application/add', 'ApplicationController@form');
+Route::get('/application/update/{formId}', 'ApplicationController@form');
+Route::post('/application/add', 'ApplicationController@store');
+Route::delete('/application/{form}', 'ApplicationController@destroy');

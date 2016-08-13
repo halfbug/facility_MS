@@ -20,4 +20,12 @@ class Facility extends Model
     {
         return $this->belongsToMany('App\User');
     }
+    
+    /**
+     * Get all of the aplications forms for the facility.
+     */
+    public function application_forms()
+    {
+        return $this->hasMany('App\Application_Form');
+    }
 }
