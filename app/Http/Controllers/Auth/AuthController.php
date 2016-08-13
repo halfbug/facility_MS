@@ -86,8 +86,10 @@ class AuthController extends Controller
     {
 //       return "i m here";
         $facilities = \App\Facility::all('name','id');
+        $parents= \App\Facility::all()->where('parent_id',null);
         return view('auth.register',[
-        'facilities' => $facilities
+        'facilities' => $facilities,
+        'parents' => $parents,
     ]);
         
       
