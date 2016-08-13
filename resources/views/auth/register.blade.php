@@ -16,7 +16,7 @@
 
                             <div class="col-md-6">
                                 <select id="facility" name="facility" class="form-control">
-                                  @foreach ($facilities as $facility)
+                                  @foreach ($parents as $facility)
                                     <option value="{{ $facility->id }}">{{ $facility->name }}</option>
                                    @endforeach
                                     
