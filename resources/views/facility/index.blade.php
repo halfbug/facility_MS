@@ -12,7 +12,7 @@
         <form action="{{ url('facility') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
-            
+            <!--
             <div class="form-group">
                 <label for="facility-name" class="col-sm-3 control-label">Facility Name</label>
 
@@ -103,7 +103,7 @@
                 </div>
             </div>
             
-            <!-- Add  Button -->
+            
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
                     <button type="submit" class="btn btn-default">
@@ -113,7 +113,7 @@
             </div>
         </form>
     
-
+        -->
         
 <!-- Current Tasks -->
     @if (count($facilities) > 0)
@@ -142,7 +142,10 @@
                             <tr>
                                 
                                 <td class="table-text">
-                                    <div>{{ $facility->name }}</div>
+
+                                    <div> 
+                                    {{ isset($facility->parent_id) ? " ---> " . $facility->name  :  $facility->name }}
+                                    </div>
                                 </td>
 
                                 <td class="table-text">
@@ -157,8 +160,15 @@
                                     <div>{{ $facility->email }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $facility->parent_id }}</div>
+                                    <div>                                
+                                        @foreach ($facilities as $item)
+                                            @if($item->id === $facility->parent_id)
+                                                {{$item->name}}
+                                            @endif
+                                        @endforeach                                
+                                     </div>
                                 </td>
+                                <!--
                                 <td class="table-text">
                                     <div>
                                         <a href="#" alt="edit">
@@ -174,6 +184,7 @@
                                         </a>
                                     </div>
                                 </td>
+                                -->
                             </tr>
                         @endforeach
                     </tbody>

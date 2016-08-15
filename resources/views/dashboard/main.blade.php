@@ -6,9 +6,10 @@
 <div class="row placeholders">
     <div class="col-xs-6 col-sm-3 placeholder">
         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-        <h4>Label</h4>
-        <span class="text-muted">Something else</span>
+        <h4>12</h4>
+        <span class="text-muted">Total Applications</span>
     </div>
+    <!--
     <div class="col-xs-6 col-sm-3 placeholder">
         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
         <h4>Label</h4>
@@ -24,12 +25,13 @@
         <h4>Label</h4>
         <span class="text-muted">Something else</span>
     </div>
+    -->
 </div>
 
 @endsection
 
 @section('panel_2')
-<h2 class="sub-header">New Registration</h2>
+<h2 class="sub-header">Pending Registrations</h2>
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>

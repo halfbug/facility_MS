@@ -8,9 +8,10 @@
         
         <a href="{{url('/application/add')}}" class="btn btn-primary"> <i class="fa fa-plus"></i> Add New Application</a>
         
-
+        <br />
+&nbsp;
             @if (count($appforms) > 0)
-    <div class="col-sm-10">
+    <div class="col-sm-12">
         <div class="panel panel-default ">
 <!--            <div class="panel-heading">
                 <h2 class="sub-header"> Facilities </h2>
@@ -22,6 +23,7 @@
                     <!-- Table Headings -->
                     <thead>
                     <th>&nbsp; </th>
+                     <th>&nbsp; </th>
                         <th>Name</th>
                         <th>Date of Birth</th>
                         <th>Home Address</th>
@@ -36,13 +38,15 @@
                         @foreach ($appforms as $app)
                             <tr>
                                 <td> <a href="{{url('/application/update/').'/'.$app->id}}">Edit</a></td>
-                                
+                                <td> <a href="{{url('/application/export/').'/'.$app->id}}">Export</a></td>
                                 <td class="table-text">
                                     <div>{{ $app->first_name ." ".$app->last_name }}</div>
                                 </td>
 
                                 <td class="table-text">
-                                    <div>{{ $app->date_of_birth }}</div>
+                                    <div>
+                                        {{ $app->date_of_birth==='0000-00-00' ? "":$app->date_of_birth }}
+                                    </div>
                                 </td>
                                 
                                 <td class="table-text">
