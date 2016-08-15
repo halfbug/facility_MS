@@ -76,7 +76,7 @@ else
     }
     
     /**
-     * Display a application Form.
+     * Display an application Form.
      *
      * @param  Request  $request
      * @return Response
@@ -97,6 +97,37 @@ else
             'facilities'=> $facilities
             ]);
     
+    }
+
+
+
+     /**
+     * Exports an application Form to PDF using template in blade.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function export(Request $request, Applicationform $formId) 
+    {
+        if(!empty($formId))
+        {
+            $old = $formId;
+        }
+        else
+        {
+            $old=$request;
+        }
+        
+        //Using template blade, generate view and export to PDF
+        $pdf = \PDF::loadView('applicationform.pdf', ['old'=>$old  ] );
+        return $pdf->download('appform.pdf');
+
+        //Alternate method to export pdf - Commented code
+        /*
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML('<h1> Name is : ' . $old->first_name  . '</h1>');
+        return $pdf->stream();
+        */
     }
 
 }
