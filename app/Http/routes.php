@@ -45,5 +45,6 @@ Route::get('/user/decline/{newUser}', 'UserController@decline');
 Route::get('/application', 'ApplicationController@index');
 Route::get('/application/add', 'ApplicationController@form');
 Route::get('/application/update/{formId}', 'ApplicationController@form');
+Route::get('/application/export/{formId}', 'ApplicationController@export');
 Route::post('/application/add', 'ApplicationController@store');
 Route::delete('/application/{form}', 'ApplicationController@destroy');
