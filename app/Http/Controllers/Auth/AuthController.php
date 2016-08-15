@@ -94,4 +94,26 @@ class AuthController extends Controller
         
       
     }
+    
+     public function postRegisterUser()
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+//        Auth::guard($this->getGuard())->login($this->create($request->all()));
+
+        return redirect($this->redirectPath());
+    }
+    
+    public function getCredentials($request)
+    {
+        $credentials = $request->only($this->loginUsername(), 'password');
+
+        return array_add($credentials, 'is_approved', '1');
+    }
 }
