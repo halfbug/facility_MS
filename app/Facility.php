@@ -24,9 +24,9 @@ class Facility extends Model
     /**
      * Get all of the aplications forms for the facility.
      */
-    public function application_forms()
+    public function applications()
     {
-        return $this->hasMany('App\Application_Form');
+        return $this->hasMany('App\Applicationform');
     }
     
     public function mainFacility()

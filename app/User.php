@@ -61,7 +61,7 @@ class User extends Authenticatable
      * get user main facility
      */
     public function mainFacility(){
-        return $this->facilities()->where('parent_id',null)->get()->toArray();
+        return $this->facilities()->where('parent_id',null)->get();
     }
     
     
@@ -69,6 +69,6 @@ class User extends Authenticatable
      * get user branches
      */
     public function assignedBranches(){
-        return $this->facilities()->where('parent_id','!=',null)->get()->toArray();
+        return $this->facilities()->where('parent_id','!=',null)->get();
     }
 }

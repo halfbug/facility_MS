@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Applicationform;
 use App\Facility;
 
+
 class ApplicationController extends Controller {
 
     /**
@@ -25,7 +26,10 @@ class ApplicationController extends Controller {
      * @return Response
      */
     public function index(Request $request) {
+        if (in_array("System Admin", \Auth::user()->getRoleArray()))
         $appforms = Applicationform::all();
+        else
+            $appforms = 
         return view('applicationForm.grid',['appforms'=>$appforms]);
     }
 
@@ -91,7 +95,7 @@ else
             $old=$request;
         }
         
-        $facilities= Auth::User()->assignedBranches();
+        $facilities= \Auth::user()->assignedBranches();
         
         return view('applicationForm.form',['old'=>$old, 
             'facilities'=> $facilities
