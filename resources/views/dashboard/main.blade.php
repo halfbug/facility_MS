@@ -29,6 +29,7 @@
 @endsection
 
 @section('panel_2')
+@if (in_array("System Admin", Auth::user()->getRoleArray()))
 <h2 class="sub-header">New Registration</h2>
 <div class="table-responsive">
     <table class="table table-striped">
@@ -73,7 +74,7 @@
         </tbody>
     </table>
 </div>
-
+@endif
 @endsection
 
 @section('panel_3')

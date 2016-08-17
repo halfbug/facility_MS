@@ -46,5 +46,15 @@ class User extends Authenticatable
     
     } 
             
+    /**
+     * get roles in array
+     */
+    public function getRoleArray(){
+        $roleNameArray=[];
+        foreach ($this->roles->toArray() as $role) {
+            $roleNameArray[]=$role['name'];
+        }
+        return($roleNameArray);
+    }
     
 }
