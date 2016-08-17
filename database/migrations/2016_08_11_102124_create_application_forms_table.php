@@ -22,7 +22,7 @@ class CreateApplicationFormsTable extends Migration
             $table->string('h_state',20);
             $table->string('h_postcode',10);
             $table->string('h_email',100);
-            $table->string('h_phone',20);
+            $table->string('h_phone',50);
             $table->date('date_of_birth');
             $table->string('gp_fullname');
             $table->string('gp_address',100);

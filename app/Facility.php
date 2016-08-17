@@ -28,4 +28,15 @@ class Facility extends Model
     {
         return $this->hasMany('App\Application_Form');
     }
+    
+    public function mainFacility()
+    {
+        return $this->belongsTo($this, 'parent_id');
+    }
+
+    public function branches()
+    {
+            return $this->hasMany($this, 'parent_id');
+    }
+    
 }

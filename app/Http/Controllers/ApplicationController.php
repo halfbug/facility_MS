@@ -91,7 +91,7 @@ else
             $old=$request;
         }
         
-        $facilities= Facility::all()->where('parent_id',null);
+        $facilities= Auth::User()->assignedBranches();
         
         return view('applicationForm.form',['old'=>$old, 
             'facilities'=> $facilities

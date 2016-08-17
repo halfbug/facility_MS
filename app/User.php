@@ -57,4 +57,18 @@ class User extends Authenticatable
         return($roleNameArray);
     }
     
+    /*
+     * get user main facility
+     */
+    public function mainFacility(){
+        return $this->facilities()->where('parent_id',null)->get()->toArray();
+    }
+    
+    
+    /*
+     * get user branches
+     */
+    public function assignedBranches(){
+        return $this->facilities()->where('parent_id','!=',null)->get()->toArray();
+    }
 }

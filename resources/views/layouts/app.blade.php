@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>eToos - Facility Management System v1.0</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -26,6 +26,8 @@
         .fa-btn {
             margin-right: 6px;
         }
+
+ 
     </style>
 </head>
 <body id="app-layout">
@@ -43,7 +45,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Facility <span class="label label-default">Management System</span>
+                     <span class="label label-default"> Facility Management System</span>
                 </a>
             </div>
 
@@ -62,7 +64,8 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                              Welcome   {{ Auth::user()->first_name  }} {{ Auth::user()->last_name  }} 
+                               <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
