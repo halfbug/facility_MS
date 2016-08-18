@@ -9,14 +9,34 @@
         <a href="{{url('/application/add')}}" class="btn btn-primary"> <i class="fa fa-plus"></i> Add New Application</a>
         
         <br />
-&nbsp;
+        <br>
+        
+<form action="{{ url('/application/post') }}" method="POST" class="form-horizontal">
+    {{ csrf_field() }}
+    <div class="col-sm-3">
+        
+        <select id="branches" name="branches" class="form-control"  onchange="this.form.submit()">
+                    @foreach ($branches as $branch)
+                    
+                   @if ($old->branches == $branch->id)
+                    <option value="{{ $branch->id }}" selected="selected">{{ $branch->name }}</option>
+                    @else
+                    <option value="{{ $branch->id }}">{{ $branch->name }}</option>
+                    @endif
+                    @endforeach
+
+                </select>
+            </div>
+    
+</form>
+        <br>
+        
             @if (count($appforms) > 0)
     <div class="col-sm-12">
         <div class="panel panel-default ">
 <!--            <div class="panel-heading">
                 <h2 class="sub-header"> Facilities </h2>
             </div>-->
-
             <div class="panel-default">
                 <table class="table table-striped table-hover">
 
@@ -72,6 +92,8 @@
             </div>
         </div>
     </div>
+            @else
+            <h4>No Record Found</h4>
     @endif    
     
     </div>

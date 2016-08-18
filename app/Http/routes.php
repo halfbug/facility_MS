@@ -43,6 +43,7 @@ Route::post('/user/approved', 'UserController@approved');
 Route::get('/user/decline/{newUser}', 'UserController@decline');
 
 Route::get('/application', 'ApplicationController@index');
+Route::post('/application/post', 'ApplicationController@index');
 Route::get('/application/add', 'ApplicationController@form');
 Route::get('/application/update/{formId}', 'ApplicationController@form');
 Route::get('/application/export/{formId}', 'ApplicationController@export');
