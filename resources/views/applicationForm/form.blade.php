@@ -21,17 +21,19 @@
 
     <form action="{{ url('/application/add') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
+        
 
         @if (!empty($old->id))
         <input type="hidden" name="id" id="id" class="form-control" value="{{$old->id}}">
-
+        @else
+        $old=Request::old();
         @endif
 
         <div class="form-group">
             <label for="title" class="col-sm-3 control-label">Title</label>
 
             <div class="col-sm-6">
-                <input type="text" name="title" id="title" class="form-control" value="{{$old->title}}">
+                <input type="text" name="title" id="title" class="form-control" value="{{$old->title}}{{old('title')}}">
             </div>
         </div>
 
@@ -39,7 +41,7 @@
             <label for="first_name" class="col-sm-3 control-label">First Name</label>
 
             <div class="col-sm-6">
-                <input type="text" name="first_name" id="first_name" class="form-control" value="{{$old->first_name}}">
+                <input type="text" name="first_name" id="first_name" class="form-control" value="{{$old->first_name}}{{old('first_name')}}">
 
             </div>
         </div>
@@ -48,7 +50,7 @@
             <label for="last_name" class="col-sm-3 control-label">Last Name</label>
 
             <div class="col-sm-6">
-                <input type="text" name="last_name" id="last_name" class="form-control" value="{{$old->last_name}}">
+                <input type="text" name="last_name" id="last_name" class="form-control" value="{{$old->last_name}}{{old('last_name')}}">
 
             </div>
         </div>
@@ -57,7 +59,7 @@
             <label for="h_address" class="col-sm-3 control-label">Address</label>
 
             <div class="col-sm-6">
-                <input type="text" name="h_address" id="h_address" class="form-control" value="{{$old->h_address}}">
+                <input type="text" name="h_address" id="h_address" class="form-control" value="{{$old->h_address}}{{old('h_address')}}">
             </div>
         </div>
 
@@ -65,14 +67,14 @@
             <label for="h_postcode" class="col-sm-3 control-label">Home Post Code</label>
 
             <div class="col-sm-6">
-                <input type="text" name="h_postcode" id="state" class="form-control" value="{{$old->state}}">
+                <input type="text" name="h_postcode" id="state" class="form-control" value="{{$old->state}}{{old('state')}}">
             </div>
         </div>
         <div class="form-group">
             <label for="h_suburb" class="col-sm-3 control-label">Home Suburb</label>
 
             <div class="col-sm-6">
-                <input type="text" name="h_suburb" id="h_suburb" class="form-control" value="{{$old->h_suburb}}" >
+                <input type="text" name="h_suburb" id="h_suburb" class="form-control" value="{{$old->h_suburb}}{{old('h_suburb')}}" >
             </div>
         </div>
 
@@ -80,7 +82,7 @@
             <label for="h_state" class="col-sm-3 control-label">Home State</label>
 
             <div class="col-sm-6">
-                <input type="text" name="h_state" id="h_state" class="form-control" value="{{$old->h_state}}" >
+                <input type="text" name="h_state" id="h_state" class="form-control" value="{{$old->h_state}}{{old('h_state')}}" >
             </div>
         </div>
 
@@ -88,7 +90,7 @@
             <label for="h_email" class="col-sm-3 control-label">Home Email</label>
 
             <div class="col-sm-6">
-                <input type="text" name="h_email" id="h_email" class="form-control" value="{{$old->h_email}}">
+                <input type="text" name="h_email" id="h_email" class="form-control" value="{{$old->h_email}}{{old('h_email')}}">
             </div>
         </div>
 
@@ -96,28 +98,28 @@
             <label for="h_phone" class="col-sm-3 control-label">Home Phone</label>
 
             <div class="col-sm-6">
-                <input type="text" name="h_phone" id="h_phone" class="form-control" value="{{$old->h_phone}}" >
+                <input type="text" name="h_phone" id="h_phone" class="form-control" value="{{$old->h_phone}}{{old('h_phone')}}" >
             </div>
         </div>
         <div class="form-group">
             <label for="date_of_birth" class="col-sm-3 control-label">Date of Birth</label>
 
             <div class="col-sm-6">
-                <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" value="{{$old->date_of_birth}}" >
+                <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" value="{{$old->date_of_birth}}{{old('date_of_birth')}}" >
             </div>
         </div>
         <div class="form-group">
             <label for="gp_fullname" class="col-sm-3 control-label">GP Full Name</label>
 
             <div class="col-sm-6">
-                <input type="text" name="gp_fullname" id="web_url" class="form-control" value="{{$old->gp_fullname}}" >
+                <input type="text" name="gp_fullname" id="web_url" class="form-control" value="{{$old->gp_fullname}}{{old('gp_fullname')}}" >
             </div>
         </div>
         <div class="form-group">
             <label for="gp_address" class="col-sm-3 control-label">GP Address</label>
 
             <div class="col-sm-6">
-                <input type="text" name="gp_address" id="gp_address" class="form-control" value="{{$old->gp_address}}" >
+                <input type="text" name="gp_address" id="gp_address" class="form-control" value="{{$old->gp_address}}{{old('gp_address')}}" >
             </div>
         </div>
 
@@ -133,7 +135,7 @@
             <label for="gp_suburb" class="col-sm-3 control-label">GP Suburb</label>
 
             <div class="col-sm-6">
-                <input type="text" name="gp_suburb" id="gp_suburb" class="form-control" value="{{$old->gp_suburb}}" >
+                <input type="text" name="gp_suburb" id="gp_suburb" class="form-control" value="{{$old->gp_suburb}}{{old('gp_subrub')}}" >
             </div>
         </div>
 
@@ -141,7 +143,7 @@
                     <label for="gp_state" class="col-sm-3 control-label">GP State</label>
         
                     <div class="col-sm-6">
-                        <input type="text" name="gp_state" id="gp_state" value="{{$old->gp_state}}" class="form-control">
+                        <input type="text" name="gp_state" id="gp_state" value="{{$old->gp_state}} {{old('gp_state')}}" class="form-control">
                     </div>
                 </div><!--
         -->
@@ -149,7 +151,7 @@
             <label for="gp_postcode" class="col-sm-3 control-label">GP Post Code</label>
 
             <div class="col-sm-6">
-                <input type="text" name="gp_postcode" id="gp_postcode" value="{{$old->gp_postcode}}" class="form-control">
+                <input type="text" name="gp_postcode" id="gp_postcode" value="{{$old->gp_postcode}} {{old('gp_postcode')}}" class="form-control">
             </div>
         </div>
 
@@ -157,7 +159,7 @@
             <label for="gp_phone_1" class="col-sm-3 control-label">GP Phone 1</label>
 
             <div class="col-sm-6">
-                <input type="text" name="gp_phone_1" id="gp_phone_1" value="{{$old->gp_phone_1}}" class="form-control">
+                <input type="text" name="gp_phone_1" id="gp_phone_1" value="{{$old->gp_phone_1}} {{old('gp_phone_1')}}" class="form-control">
             </div>
         </div>
 
@@ -165,7 +167,7 @@
             <label for="gp_phone_2" class="col-sm-3 control-label">GP Phone 2</label>
 
             <div class="col-sm-6">
-                <input type="text" name="gp_phone_2" id="gp_phone_2" value="{{$old->gp_phone_2}}" class="form-control">
+                <input type="text" name="gp_phone_2" id="gp_phone_2" value="{{$old->gp_phone_2}}{{old('gp_phone_2')}}" class="form-control">
             </div>
         </div>
 
