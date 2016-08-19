@@ -32,7 +32,7 @@
 
 @section('panel_2')
 @if (in_array("System Admin", Auth::user()->getRoleArray()))
-<h2 class="sub-header">New Registration</h2>
+
 <h2 class="sub-header">Pending Registrations</h2>
 <div class="table-responsive">
     <table class="table table-striped">

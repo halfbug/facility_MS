@@ -17,6 +17,7 @@
     
     <!-- Custom styles for this template -->
     <link href="{{ URL::asset('css/dashboard.css') }}" rel="stylesheet">
+    @yield('style')
 
     <style>
         body {

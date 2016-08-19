@@ -1,5 +1,10 @@
 @extends('layouts.home')
 
+@section('style')
+<link href="{{ URL::asset('css/datepicker.css') }}" rel="stylesheet">
+@endsection
+
+
 @section('panel_1')
 
 <h1 class="page-header">@if ($old->id == null)
@@ -196,4 +201,13 @@
 
 
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script><script type="text/javascript">
+$('#date_of_birth').datepicker({
+    format: 'mm-dd-yyyy'
+});
+</script>
+
 @endsection
