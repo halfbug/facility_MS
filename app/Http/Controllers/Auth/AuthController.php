@@ -91,6 +91,8 @@ class AuthController extends Controller
         'facilities' => $facilities,
         'parents' => $parents,
     ]);
+
+
         
       
     }
@@ -106,6 +108,18 @@ class AuthController extends Controller
         }
 
 //        Auth::guard($this->getGuard())->login($this->create($request->all()));
+
+        $data = array(
+        'name' => $request->first_name." ".$request->last_name,
+    );
+
+    Mail::send('emails.welcome', $data, function ($message) {
+
+        $message->from('sadaf_cu@hotmail.com', 'welcome');
+
+        $message->to($request->email)->subject('Registration emailS');
+
+    });
 
         return redirect($this->redirectPath());
     }

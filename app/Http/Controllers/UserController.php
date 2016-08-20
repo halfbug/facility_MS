@@ -57,6 +57,19 @@ class UserController extends Controller
         $user->approved_date=date('Y-m-d H:i:s');
         $user->is_approved = 1;
         $user->save();
+
+        $data = array(
+        'name' => $user->first_name." ".$user->last_name,
+    );
+
+    Mail::send('emails.approved', $data, function ($message) {
+
+        $message->from('sadaf_cu@hotmail.com', 'etoots_info');
+
+        $message->to($user->email)->subject('Account Approval Email');
+
+    });
+
         return redirect('/home');
         
         
