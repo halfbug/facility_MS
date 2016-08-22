@@ -7,6 +7,9 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use Mail;
 
 class AuthController extends Controller
 {
@@ -87,6 +90,8 @@ class AuthController extends Controller
 //       return "i m here";
         $facilities = \App\Facility::all('name','id');
         $parents= \App\Facility::all()->where('parent_id',null);
+      
+
         return view('auth.register',[
         'facilities' => $facilities,
         'parents' => $parents,
@@ -97,8 +102,10 @@ class AuthController extends Controller
       
     }
     
-     public function postRegisterUser()
+     public function postRegisterUser(Request $request)
     {
+
+      //  return "i am on";
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
@@ -113,15 +120,20 @@ class AuthController extends Controller
         'name' => $request->first_name." ".$request->last_name,
     );
 
-    Mail::send('emails.welcome', $data, function ($message) {
+        $to=$request->email;
+
+    Mail::send('emails.welcome', $data, function ($message) use ($to){
 
         $message->from('sadaf_cu@hotmail.com', 'welcome');
 
-        $message->to($request->email)->subject('Registration emailS');
+        $message->to($to)->subject('Registration emailS');
 
     });
 
-        return redirect($this->redirectPath());
+        \Session::flash('message', 'You have been registered now, Your accont will be in funtion after admin approval'); 
+\Session::flash('alert-class', 'alert-info'); 
+
+        return redirect($this->redirectPath())->with('message', 'error|There was an error...');
     }
     
     public function getCredentials($request)

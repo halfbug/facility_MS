@@ -25,8 +25,7 @@
 
         @if (!empty($old->id))
         <input type="hidden" name="id" id="id" class="form-control" value="{{$old->id}}">
-        @else
-        $old=Request::old();
+        
         @endif
 
         <div class="form-group">

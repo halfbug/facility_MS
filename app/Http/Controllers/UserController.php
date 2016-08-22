@@ -62,7 +62,7 @@ class UserController extends Controller
         'name' => $user->first_name." ".$user->last_name,
     );
 
-    Mail::send('emails.approved', $data, function ($message) {
+    \Mail::send('emails.approved', $data, function ($message) use ($user) {
 
         $message->from('sadaf_cu@hotmail.com', 'etoots_info');
 

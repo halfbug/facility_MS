@@ -16,6 +16,7 @@
     <div class="col-sm-3">
         
         <select id="branches" name="branches" class="form-control"  onchange="this.form.submit()">
+        @if (count($branches) > 0)
                     @foreach ($branches as $branch)
                     
                    @if ($old->branches == $branch->id)
@@ -24,6 +25,7 @@
                     <option value="{{ $branch->id }}">{{ $branch->name }}</option>
                     @endif
                     @endforeach
+        @endif
 
                 </select>
             </div>
