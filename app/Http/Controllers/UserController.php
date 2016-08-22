@@ -50,6 +50,11 @@ class UserController extends Controller
     public function approved(Request $request)
     {
         
+        $this->validate($request, [
+        'role' => 'required',
+        'to' => 'required',
+    ]);
+
         $user=User::find($request->newUser);
         $user->facilities()->attach($request->to);
         $user->roles()->attach($request->role);
