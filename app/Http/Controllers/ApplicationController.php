@@ -26,26 +26,33 @@ class ApplicationController extends Controller {
      */
     public function index(Request $request) {
         \DB::enableQueryLog();
-//$inside="no";
+        // $branches = \Auth::user()->assignedBranches();
+$inside="no";
         if (in_array("System Admin", \Auth::user()->getRoleArray())) {
-            $branches = Facility::all()->where('parent_id', '!=', null);
+            $branches = \DB::table("facilities")->where('parent_id',"<>",null)->get();
             $appforms = Applicationform::all();
+            $inside ="yes";
         } else {
-            $branches = \Auth::user()->assignedBranches();
-            if ((int)$request->branches > 0) {
+        
+        $branches = \Auth::user()->assignedBranches();
+
+
+        }
+
+
+            if (!empty($request->branches) && (int)$request->branches > 0) {
                 $num=(int)trim($request->branches);
                 $appforms = Applicationform::all()->where('facility_id', $num);
 //$inside="yes";
                 // return $request->branches;
-            } else {
-                $appforms = Applicationform::all()->where('facility_id', $branches[0]->id);
-                //  return $appforms;
+            // } else {
+            //     $appforms = Applicationform::all()->where('facility_id', $branches[0]->id);
+            //     //  return $appforms;
             }
-        }
         //var_dump($appforms);
-//        dd(
-//               $inside, $appforms, $branches[0]->id,  $request->branches, \DB::getQueryLog()
-//        );
+       // dd(
+       //        $appforms, $branches,  $request->branches, \DB::getQueryLog(), $inside
+       // );
         return view('applicationForm.grid', [
             'appforms' => $appforms,
             'branches' => $branches,
